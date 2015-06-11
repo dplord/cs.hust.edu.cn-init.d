@@ -1,0 +1,18 @@
+./configure \
+--prefix=/home/dengpan/opt/nginx-1.7.3 \
+--sbin-path=/home/dengpan/opt/nginx-1.7.3/sbin/nginx \
+--conf-path=/home/dengpan/opt/nginx-1.7.3/conf/nginx.conf \
+--error-log-path=/home/dengpan/opt/nginx-1.7.3/var/log/error.log \
+--http-log-path=/home/dengpan/opt/nginx-1.7.3/var/log/access.log \
+--pid-path=/home/dengpan/opt/nginx-1.7.3/var/run/nginx.pid \
+--lock-path=/home/dengpan/opt/nginx-1.7.3/var/run/nginx.lock \
+--http-client-body-temp-path=/home/dengpan/opt/nginx-1.7.3/var/cache/client_temp \
+--http-proxy-temp-path=/home/dengpan/opt/nginx-1.7.3/var/cache/proxy_temp \
+--http-fastcgi-temp-path=/home/dengpan/opt/nginx-1.7.3/var/cache/fastcgi_temp \
+--http-uwsgi-temp-path=/home/dengpan/opt/nginx-1.7.3/var/cache/uwsgi_temp \
+--http-scgi-temp-path=/home/dengpan/opt/nginx-1.7.3/var/cache/scgi_temp \
+--user=www \
+--group=www \
+--with-http_gunzip_module \
+--with-http_gzip_static_module \
+--with-ipv6

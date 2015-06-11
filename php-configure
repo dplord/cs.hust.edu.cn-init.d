@@ -1,0 +1,46 @@
+ ./configure \
+--prefix=/opt/php-5.5.8 \
+--with-config-file-path=/opt/php-5.5.8/etc \
+--with-config-file-scan-dir=/opt/php-5.5.8/etc/php.d\
+--with-libdir=lib64 \
+--with-curl \
+--with-freetype-dir=/opt/freetype-2.4.2/  \
+--with-gd \
+--with-gettext \
+--with-iconv-dir=/opt/libiconv-1.14   \
+--with-jpeg-dir  \
+--with-kerberos \
+--with-ldap \
+--with-ldap-sasl \
+--with-libxml-dir  \
+--with-mcrypt=/opt/libmcrypt-2.5.7 \
+--with-mhash \
+--with-mysql=mysqlnd  \
+--with-mysqli=mysqlnd  \
+--with-openssl \
+--with-pcre-regex \
+--with-pdo-mysql=mysqlnd \
+--with-pdo-sqlite=shared \
+--with-pear \
+--with-png-dir \
+--with-xmlrpc \
+--with-xsl \
+--with-zlib \
+--enable-fpm \
+--enable-bcmath \
+--enable-libxml \
+--enable-inline-optimization \
+--enable-gd-native-ttf \
+--enable-mbregex \
+--enable-mbstring \
+--enable-opcache \
+--enable-pcntl \
+--enable-shmop \
+--enable-soap \
+--enable-sockets \
+--enable-sysvsem \
+--enable-xml \
+--enable-zip \
+--with-mysql=mysqlnd \
+--with-mysqli=mysqlnd \
+--disable-rpath
