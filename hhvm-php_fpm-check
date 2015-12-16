@@ -1,0 +1,16 @@
+#!/bin/env bash
+#检测hhvm、php-fpm是否再运行的定时程序
+
+while true; do
+    if ! ps -e | grep -q php-fpm; then
+        echo "php-fpm done, starting..."
+        service php-fpm-5.5.9 start
+    fi
+
+    if ! ps -e | grep -q hhvm; then
+        echo "hhvm done, starting..."
+        service hhvm start
+    fi
+    
+    sleep 10
+done
