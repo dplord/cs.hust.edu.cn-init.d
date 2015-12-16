@@ -15,7 +15,7 @@ sheet1 = book.worksheet(0)
 
 #print $levels,"\n\n",$levels.uniq
 
-m=Mysql.new("","","","")
+m=Mysql.new("localhost","db_name","root","")
 $sql=[]
 for i in 0..(sheet1.count-1)
   if sheet1.row(i)!=nil
