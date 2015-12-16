@@ -1,0 +1,39 @@
+#!/bin/bash - 
+
+#1.nginx日志存放路径
+first_path="/home/dengpan/log/nginx-logs"
+path_array=($first_path)
+
+#2.日志标识前缀数组
+first_prefix_sign="hustcs"
+prefix_array=($first_prefix_sign)
+
+#3.日志成功错误标识后缀数组
+bool_array=("access" "error")
+
+#4.nginx日志切割备份后缀
+postfix=`date -d '+0 days' +%Y%m%d`".log"
+
+#5.备份当前的日志文件，重命名改为日期后缀
+for path in ${path_array[*]}
+do
+        for prefix in ${prefix_array[*]}
+        do
+                for bool in ${bool_array[*]}
+                do
+                        file=$path/$prefix.$bool.log
+                        backfile=$path/$prefix.$bool.$postfix
+                        echo $file
+                        echo $backfile
+                        if [ -e $file ]
+                        then
+                                mv $file $backfile
+                        fi
+                done
+        done
+done
+
+#6.查找nginx进程号,让其产生新的日志文件
+nginx_pid=`ps -aux |grep -E 'nginx: master process'|grep -v 'grep'|awk '{print $2}'`
+#USR1:Reopen log files,刷新nginx日志文件
+kill -USR1 $nginx_pid
