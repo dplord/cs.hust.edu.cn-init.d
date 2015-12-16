@@ -1,0 +1,28 @@
+#!/bin/sh
+# chkconfig: 345 86 14
+# description: Startup and shutdown script for nginx
+NGINX_DIR=/home/dengpan/opt/nginx-1.7.4
+export NGINX_DIR
+
+case $1 in
+'start' )
+echo "Starting nginx..."
+$NGINX_DIR/sbin/nginx
+;;
+'reload' )
+echo "Reload nginx configuration..."
+kill -HUP `cat $NGINX_DIR/var/run/nginx.pid`
+;;
+'stop' )
+echo "Stopping nginx..."
+kill -15 `cat $NGINX_DIR/var/run/nginx.pid`
+;;
+'list' )
+ps aux | egrep '(PID|nginx)'
+;;
+'testconfig' )
+$NGINX_DIR/sbin/nginx -t
+;;
+*)
+echo "usage: `basename $0` {start|reload|stop|list|testconfig}"
+esac
